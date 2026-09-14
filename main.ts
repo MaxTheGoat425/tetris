@@ -10,18 +10,18 @@ function checkBelow () {
             if (b6 == 1) {
                 blocked = 1
             }
-        }
-    } else if (py == 1) {
-        if (b11 == 1) {
-            blocked = 1
-        }
-    } else if (py == 2) {
-        if (b16 == 1) {
-            blocked = 1
-        }
-    } else if (py == 3) {
-        if (b21 == 1) {
-            blocked = 1
+        } else if (py == 1) {
+            if (b11 == 1) {
+                blocked = 1
+            }
+        } else if (py == 2) {
+            if (b16 == 1) {
+                blocked = 1
+            }
+        } else if (py == 3) {
+            if (b21 == 1) {
+                blocked = 1
+            }
         }
     } else if (px == 1) {
         if (py == 0) {
@@ -41,7 +41,7 @@ function checkBelow () {
                 blocked = 1
             }
         }
-    } else if (false) {
+    } else if (px == 2) {
         if (py == 0) {
             if (b8 == 1) {
                 blocked = 1
@@ -59,7 +59,7 @@ function checkBelow () {
                 blocked = 1
             }
         }
-    } else if (false) {
+    } else if (px == 3) {
         if (py == 0) {
             if (b9 == 1) {
                 blocked = 1
@@ -102,6 +102,133 @@ input.onButtonPressed(Button.B, function () {
         px += 1
     }
 })
+function lockBlock () {
+    if (px == 0) {
+        if (b21 == 0) {
+            b21 = 1
+        } else if (b16 == 0) {
+            b16 = 1
+        } else if (b11 == 0) {
+            b11 = 1
+        } else if (b6 == 0) {
+            b6 = 1
+        } else {
+            b1 = 1
+        }
+    } else if (px == 1) {
+        if (b22 == 0) {
+            b22 = 1
+        } else if (b17 == 0) {
+            b17 = 1
+        } else if (b12 == 0) {
+            b12 = 1
+        } else if (b7 == 0) {
+            b7 = 1
+        } else {
+            b2 = 1
+        }
+    } else if (px == 2) {
+        if (b23 == 0) {
+            b23 = 1
+        } else if (b18 == 0) {
+            b18 = 1
+        } else if (b13 == 0) {
+            b13 = 1
+        } else if (b8 == 0) {
+            b8 = 1
+        } else {
+            b3 = 1
+        }
+    } else if (px == 3) {
+        if (b24 == 0) {
+            b24 = 1
+        } else if (b19 == 0) {
+            b19 = 1
+        } else if (b14 == 0) {
+            b14 = 1
+        } else if (b9 == 0) {
+            b9 = 1
+        } else {
+            b4 = 1
+        }
+    } else {
+        if (b25 == 0) {
+            b25 = 1
+        } else if (b20 == 0) {
+            b20 = 1
+        } else if (b15 == 0) {
+            b15 = 1
+        } else if (b10 == 0) {
+            b10 = 1
+        } else {
+            b5 = 1
+        }
+    }
+    if (px == 0) {
+        if (py == 0) {
+            b1 = 1
+        } else if (py == 1) {
+            b6 = 1
+        } else if (py == 2) {
+            b11 = 1
+        } else if (py == 3) {
+            b16 = 1
+        } else {
+            b21 = 1
+        }
+    } else if (px == 1) {
+        if (py == 0) {
+            b2 = 1
+        } else if (py == 1) {
+            b7 = 1
+        } else if (py == 2) {
+            b12 = 1
+        } else if (py == 3) {
+            b17 = 1
+        } else {
+            b22 = 1
+        }
+    } else if (px == 2) {
+        if (py == 0) {
+            b3 = 1
+        } else if (py == 1) {
+            b8 = 1
+        } else if (py == 2) {
+            b13 = 1
+        } else if (py == 3) {
+            b18 = 1
+        } else {
+            b23 = 1
+        }
+    } else if (px == 3) {
+        if (py == 0) {
+            b4 = 1
+        } else if (py == 1) {
+            b9 = 1
+        } else if (py == 2) {
+            b14 = 1
+        } else if (py == 3) {
+            b19 = 1
+        } else {
+            b24 = 1
+        }
+    } else {
+        if (py == 0) {
+            b5 = 1
+        } else if (py == 1) {
+            b10 = 1
+        } else if (py == 2) {
+            b15 = 1
+        } else if (py == 3) {
+            b20 = 1
+        } else {
+            b25 = 1
+        }
+    }
+    py = 0
+    px = 2
+    blocked = 0
+}
 let blocked = 0
 let b25 = 0
 let b24 = 0
@@ -123,17 +250,22 @@ let b9 = 0
 let b8 = 0
 let b7 = 0
 let b6 = 0
+let b5 = 0
+let b4 = 0
+let b3 = 0
+let b2 = 0
+let b1 = 0
 let py = 0
 let px = 0
 px = 2
 py = 0
 let landed = 0
 let board = 0
-let b1 = 0
-let b2 = 0
-let b3 = 0
-let b4 = 0
-let b5 = 0
+b1 = 0
+b2 = 0
+b3 = 0
+b4 = 0
+b5 = 0
 b6 = 0
 b7 = 0
 b8 = 0
@@ -156,7 +288,6 @@ b24 = 0
 b25 = 0
 basic.forever(function () {
     basic.clearScreen()
-    led.plot(px, py)
     if (b1 == 1) {
         led.plot(0, 0)
     }
@@ -232,74 +363,16 @@ basic.forever(function () {
     if (b25 == 1) {
         led.plot(4, 4)
     }
-    if (py < 4) {
-        py += 1
-    } else {
-        if (px == 0) {
-            checkBelow()
-            if (blocked == 0) {
-                py += 1
-            }
-            if (b21 == 0) {
-                b21 = 1
-            } else if (b16 == 0) {
-                b16 = 1
-            } else if (b11 == 0) {
-                b11 = 1
-            } else if (b6 == 0) {
-                b6 = 1
-            } else {
-                b1 = 1
-            }
-        } else if (px == 1) {
-            if (b22 == 0) {
-                b22 = 1
-            } else if (b17 == 0) {
-                b17 = 1
-            } else if (b12 == 0) {
-                b12 = 1
-            } else if (b7 == 0) {
-                b7 = 1
-            } else {
-                b2 = 1
-            }
-        } else if (px == 2) {
-            if (b23 == 0) {
-                b23 = 1
-            } else if (b18 == 0) {
-                b18 = 1
-            } else if (b13 == 0) {
-                b13 = 1
-            } else if (b8 == 0) {
-                b8 = 1
-            } else {
-                b3 = 1
-            }
-        } else if (px == 3) {
-            if (b24 == 0) {
-                b24 = 1
-            } else if (b19 == 0) {
-                b19 = 1
-            } else if (b14 == 0) {
-                b14 = 1
-            } else if (b9 == 0) {
-                b9 = 1
-            } else {
-                b4 = 1
-            }
-        } else {
-            if (b25 == 0) {
-                b25 = 1
-            } else if (b20 == 0) {
-                b20 = 1
-            } else if (b15 == 0) {
-                b15 = 1
-            } else if (b10 == 0) {
-                b10 = 1
-            } else {
-                b5 = 1
-            }
-        }
-    }
+    led.plot(px, py)
     basic.pause(500)
+    if (py < 4) {
+        checkBelow()
+        if (blocked == 0) {
+            py += 1
+        } else {
+            lockBlock()
+        }
+    } else {
+        lockBlock()
+    }
 })
